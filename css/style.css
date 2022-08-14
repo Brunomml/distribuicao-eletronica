@@ -8,10 +8,17 @@ body{
 main{
     margin-top: 2vw;
     background-color: #fff;
-    width: 70vw;
+    width: 60vw;
     height: 50vh;
     padding: 10px;
+    border-radius: 20px;
 }
+
+@media screen and (min-width: 1000px) {
+    main{
+        width: 50vw;
+    }
+} 
 
 input{
     width: 50px;
