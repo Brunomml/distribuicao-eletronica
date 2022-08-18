@@ -94,28 +94,28 @@ function mostrar_valor_no_div_resposta(subniveis_arr) {
     div_resposta_El.innerText = arr.join(" ")
 }
 
-function pegar_distribição_eletronica_do_valor(valor){
+function pegar_distribição_eletronica_do_valor(numero_atomico){
     let subniveis_arr = []
     let soma_do_numero_maximo_de_eleton = 0
 
     for (let index = 0; index < distribuição_eletrônica_em_ordem_crescente().length; index++) {
-        if (soma_do_numero_maximo_de_eleton>=valor) continue
+        if (soma_do_numero_maximo_de_eleton>=numero_atomico) continue
 
         const subnivel = distribuição_eletrônica_em_ordem_crescente()[index];
         soma_do_numero_maximo_de_eleton+=subnivel.numero_maximo_de_eletons
         subniveis_arr.push(subnivel)
     }
 
-    if (soma_do_numero_maximo_de_eleton > valor) {
-        subniveis_arr[subniveis_arr.length-1].numero_maximo_de_eletons-=soma_do_numero_maximo_de_eleton-valor
+    if (soma_do_numero_maximo_de_eleton > numero_atomico) {
+        subniveis_arr[subniveis_arr.length-1].numero_maximo_de_eletons-=soma_do_numero_maximo_de_eleton-numero_atomico
     }
 
     return subniveis_arr
 }
 
 function click() {
-    const valor = input_text_El.value || 0
-    const subniveis_arr = pegar_distribição_eletronica_do_valor(valor)
+    const numero_atomico = input_text_El.value || 0
+    const subniveis_arr = pegar_distribição_eletronica_do_valor(numero_atomico)
 
     mostrar_valor_no_div_resposta(subniveis_arr)
 }
